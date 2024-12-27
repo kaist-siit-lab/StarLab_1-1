@@ -100,7 +100,7 @@ class CombinedModel(pl.LightningModule):
 
 
     def train_diffusion(self, x):
-
+        # this function is used for training the diffusion model
         self.train()
 
         pc = x['point_cloud'] # (B, 1024, 3) or False if unconditional 
