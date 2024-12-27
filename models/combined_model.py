@@ -7,7 +7,6 @@ import pytorch_lightning as pl
 from models import * 
 
 class CombinedModel(pl.LightningModule):
-    # This class is a PyTorch Lightning module that combines the SDF model, VAE model, and diffusion model
     def __init__(self, specs):
         super().__init__()
         self.specs = specs
@@ -28,7 +27,7 @@ class CombinedModel(pl.LightningModule):
  
 
     def training_step(self, x, idx):
-        # x is a dictionary containing the input data
+
         if self.task == 'combined':
             return self.train_combined(x)
         elif self.task == 'modulation':
@@ -38,7 +37,7 @@ class CombinedModel(pl.LightningModule):
         
 
     def configure_optimizers(self):
-        # optimizer for combined training
+
         if self.task == 'combined':
             params_list = [
                     { 'params': list(self.sdf_model.parameters()) + list(self.vae_model.parameters()), 'lr':self.specs['sdf_lr'] },
@@ -66,7 +65,7 @@ class CombinedModel(pl.LightningModule):
     #-----------different training steps for sdf modulation, diffusion, combined----------
 
     def train_modulation(self, x):
-        # this function is used for training the SDF modulation model
+
         xyz = x['xyz'] # (B, N, 3)
         gt = x['gt_sdf'] # (B, N)
         pc = x['point_cloud'] # (B, 1024, 3)
@@ -100,7 +99,7 @@ class CombinedModel(pl.LightningModule):
 
 
     def train_diffusion(self, x):
-        # this function is used for training the diffusion model
+
         self.train()
 
         pc = x['point_cloud'] # (B, 1024, 3) or False if unconditional 
@@ -126,7 +125,6 @@ class CombinedModel(pl.LightningModule):
     # the first half is the same as "train_sdf_modulation"
     # the reconstructed latent is used as input to the diffusion model, rather than loading latents from the dataloader as in "train_diffusion"
     def train_combined(self, x):
-        # this function is used for training the combined model
         xyz = x['xyz'] # (B, N, 3)
         gt = x['gt_sdf'] # (B, N)
         pc = x['point_cloud'] # (B, 1024, 3)
