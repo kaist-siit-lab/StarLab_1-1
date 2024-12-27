@@ -28,7 +28,7 @@ class CombinedModel(pl.LightningModule):
  
 
     def training_step(self, x, idx):
-
+        # x is a dictionary containing the input data
         if self.task == 'combined':
             return self.train_combined(x)
         elif self.task == 'modulation':
