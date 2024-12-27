@@ -17,7 +17,7 @@ from models.archs.sdf_decoder import *
 from models.archs.encoders.conv_pointnet import ConvPointnet
 # from utils import mesh, evaluate
 
-
+# helper functions
 class SdfModel(pl.LightningModule):
 
     def __init__(self, specs):
