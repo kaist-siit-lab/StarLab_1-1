@@ -23,7 +23,7 @@ import open3d as o3d
 # constants
 ModelPrediction =  namedtuple('ModelPrediction', ['pred_noise', 'pred_x_start'])
 
-
+# .
 class DiffusionModel(nn.Module):
     def __init__(
         self,
