@@ -25,6 +25,7 @@ ModelPrediction =  namedtuple('ModelPrediction', ['pred_noise', 'pred_x_start'])
 
 # helper functions
 class DiffusionModel(nn.Module):
+    # model: DiffusionNet
     def __init__(
         self,
         model,
