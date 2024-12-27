@@ -10,8 +10,8 @@ Tensor = TypeVar('torch.tensor')
 
 class BetaVAE(nn.Module):
     """
-    BetaVAE model class which inherits from nn.Module
-    This class implements a Variational Autoencoder (VAE) with a configurable beta parameter.
+    BetaVAE model class which inherits from nn.Module.
+    
     """
     num_iter = 0 # Global static variable to keep track of iterations
 
