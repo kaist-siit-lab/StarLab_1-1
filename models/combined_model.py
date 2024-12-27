@@ -66,7 +66,7 @@ class CombinedModel(pl.LightningModule):
     #-----------different training steps for sdf modulation, diffusion, combined----------
 
     def train_modulation(self, x):
-
+        # this function is used for training the SDF modulation model
         xyz = x['xyz'] # (B, N, 3)
         gt = x['gt_sdf'] # (B, N)
         pc = x['point_cloud'] # (B, 1024, 3)
