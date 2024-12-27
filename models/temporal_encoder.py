@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-# helper functions
+# helper function
 class TemporalEncoder(nn.Module):
     def __init__(
             self,
