@@ -19,7 +19,7 @@ from models.archs.encoders.conv_pointnet import ConvPointnet
 
 # helper functions
 class SdfModel(pl.LightningModule):
-
+    # SdfModel is a subclass of pl.Light
     def __init__(self, specs):
         super().__init__()
         
