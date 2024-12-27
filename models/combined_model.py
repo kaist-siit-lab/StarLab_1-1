@@ -126,6 +126,7 @@ class CombinedModel(pl.LightningModule):
     # the first half is the same as "train_sdf_modulation"
     # the reconstructed latent is used as input to the diffusion model, rather than loading latents from the dataloader as in "train_diffusion"
     def train_combined(self, x):
+        # this function is used for training the combined model
         xyz = x['xyz'] # (B, N, 3)
         gt = x['gt_sdf'] # (B, N)
         pc = x['point_cloud'] # (B, 1024, 3)
