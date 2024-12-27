@@ -7,6 +7,7 @@ import pytorch_lightning as pl
 from models import * 
 
 class CombinedModel(pl.LightningModule):
+    # This class is a PyTorch Lightning module that combines the SDF model, VAE model, and diffusion model
     def __init__(self, specs):
         super().__init__()
         self.specs = specs
