@@ -38,7 +38,7 @@ class CombinedModel(pl.LightningModule):
         
 
     def configure_optimizers(self):
-
+        # optimizer for combined training
         if self.task == 'combined':
             params_list = [
                     { 'params': list(self.sdf_model.parameters()) + list(self.vae_model.parameters()), 'lr':self.specs['sdf_lr'] },
